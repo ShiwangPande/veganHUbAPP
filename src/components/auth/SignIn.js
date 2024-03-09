@@ -33,6 +33,7 @@ const SignIn = () => {
                 gender: '',
                 delivery: ''
             });
+            return <Navigate to="/" replace />
         } catch (error) {
             console.error('Error submitting form:', error);
             alert('Failed to submit form. Please try again later.');
