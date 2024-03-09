@@ -60,9 +60,9 @@ function Navigation() {
     const checkoutHandler = async (amount) => {
 
         try {
-            const { data: { key } } = await axios.get("http://veganhubserver.onrender.com/api/getkey")
+            const { data: { key } } = await axios.get("https://veganhubserver.onrender.com/api/getkey")
 
-            const { data: { order } } = await axios.post("http://veganhubserver.onrender.com/api/checkout", {
+            const { data: { order } } = await axios.post("https://veganhubserver.onrender.com/api/checkout", {
                 amount
             });
 
