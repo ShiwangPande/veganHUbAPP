@@ -21,7 +21,7 @@ const SignIn = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        const response = await fetch('http://localhost:8080/demo', {
+        const response = await fetch('https://veganhubserver.onrender.com/demo', {
             method: 'POST',
             body: JSON.stringify(form),
             headers: {
@@ -33,7 +33,7 @@ const SignIn = () => {
     }
 
     const getUsers = async () => {
-        const response = await fetch('http://localhost:8080/demo', {
+        const response = await fetch('https://veganhubserver.onrender.com/demo', {
             method: 'GET',
         })
         const data = await response.json();
