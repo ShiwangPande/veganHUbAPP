@@ -11,13 +11,14 @@ import Salad from '../pages/Menu/Salad.js';
 import Appetizer from '../pages/Menu/Appetizer.js';
 
 import Checkout from '../pages/CustomisePizza/Checkout.js';
+import UserData from '../components/auth/Userdata.js';
 
-const routes = ({ saladItems, appetizerItems, cartItems, handleAddProduct, handleRemoveProduct, handleCartClearance, ingredients, setIngredients, checkoutHandler }) => {
+const routes = ({ saladItems, appetizerItems, cartItems, handleAddProduct, handleRemoveProduct, handleCartClearance, ingredients, setIngredients }) => {
     return (
         <div>
             <Routes>
                 <Route path="/" element={<Home saladItems={saladItems} appetizerItems={appetizerItems} handleAddProduct={handleAddProduct} />} />
-                <Route path="/cart" element={<Cart cartItems={cartItems} handleAddProduct={handleAddProduct} handleRemoveProduct={handleRemoveProduct} handleCartClearance={handleCartClearance} checkoutHandler={checkoutHandler} />} />
+                <Route path="/cart" element={<Cart cartItems={cartItems} handleAddProduct={handleAddProduct} handleRemoveProduct={handleRemoveProduct} handleCartClearance={handleCartClearance}  />} />
                 <Route path="/about" element={<About />} />
                 <Route path="/login" element={<Login />} />
                 <Route path="/menu" element={<Menu />} />
@@ -25,7 +26,8 @@ const routes = ({ saladItems, appetizerItems, cartItems, handleAddProduct, handl
                 <Route path="/register" element={<Register />} />
                 <Route path="/appetizer" element={<Appetizer appetizerItems={appetizerItems} handleAddProduct={handleAddProduct} />} />
                 <Route path="/salad" element={<Salad saladItems={saladItems} handleAddProduct={handleAddProduct} />} />
-                <Route path="/checkout" element={<Checkout appetizerItems={appetizerItems} ingredients={ingredients} setIngredients={setIngredients} handleAddProduct={handleAddProduct} checkoutHandler={checkoutHandler} />} />
+                <Route path="/checkout" element={<Checkout appetizerItems={appetizerItems} ingredients={ingredients} setIngredients={setIngredients} handleAddProduct={handleAddProduct}  />} />
+                <Route path="/api" element={<UserData />} />
             </Routes>
         </div>
     )

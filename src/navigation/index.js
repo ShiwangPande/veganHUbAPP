@@ -57,44 +57,7 @@ function Navigation() {
         }
     }, []);
 
-    const checkoutHandler = async (amount) => {
-
-        try {
-            const { data: { key } } = await axios.get("https://veganhubserver.onrender.com/api/getkey");
-
-            const { data: { order } } = await axios.post("https://veganhubserver.onrender.com/api/checkout", {
-                amount
-            });
-
-            const options = {
-                key,
-                amount: order.totalPrice,
-                currency: "USD",
-                name: "shiwang Pandey",
-                description: "Tutorial of RazorPay",
-                image: "https://www.shiwangpandey.in/assests/img/perfil.png",
-                order_id: order.id,
-                callback_url: "http://veganhubserver.onrender.com/api/paymentverification",
-                prefill: {
-                    name: "shiwang pandey",
-                    email: "shiwangpande1@gmail.com",
-                    contact: "8459795840"
-                },
-                notes: {
-                    "address": "Razorpay Corporate Office"
-                },
-                theme: {
-                    "color": "#121212"
-                }
-            };
-
-            const razor = new window.Razorpay(options);
-            razor.open();
-
-        } catch (error) {
-            console.error('error during checkout: ', error);
-        }
-    };
+   
     const totalPrice = cartItems.reduce((price, item) => price + item.quantity * item.price, 0);
 
 
@@ -108,7 +71,7 @@ function Navigation() {
         <>
             <Router >
                 <Header cartItems={cartItems} />
-                <Routes amount={totalPrice} saladItems={saladItems} ingredients={ingredients} appetizerItems={appetizerItems} cartItems={cartItems} handleAddProduct={handleAddProduct} handleRemoveProduct={handleRemoveProduct} handleCartClearance={handleCartClearance} setIngredients={setIngredients} checkoutHandler={checkoutHandler} />
+                <Routes amount={totalPrice} saladItems={saladItems} ingredients={ingredients} appetizerItems={appetizerItems} cartItems={cartItems} handleAddProduct={handleAddProduct} handleRemoveProduct={handleRemoveProduct} handleCartClearance={handleCartClearance} setIngredients={setIngredients}  />
             </Router>
         </>
     )

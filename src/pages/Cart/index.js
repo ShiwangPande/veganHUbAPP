@@ -5,7 +5,7 @@ import Pizzaman from "../../assests/images/PizzaMan.png";
 // import Menu from "../Menu/menu";
 import "./cart.css";
 import { Scrollbars } from "react-custom-scrollbars-2";
-function Cart({ cartItems, handleAddProduct, handleRemoveProduct, handleCartClearance, checkoutHandler }) {
+function Cart({ cartItems, handleAddProduct, handleRemoveProduct, handleCartClearance }) {
 
   const totalPrice = cartItems.reduce((price, item) => price + item.quantity * item.price, 0);
   return (
@@ -47,7 +47,7 @@ function Cart({ cartItems, handleAddProduct, handleRemoveProduct, handleCartClea
             <h3>
               Cart Total : <span>${totalPrice}</span>
             </h3>
-            <button onClick={() => checkoutHandler(totalPrice)}>checkout</button>
+            <a href="paymentsuccess">   <button >checkout</button> </a>
             {cartItems.length >= 1 && <button className="clear-cart" onClick={handleCartClearance}>Clear Cart</button>}
           </div>
 
