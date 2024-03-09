@@ -44,8 +44,8 @@ const PaymentSuccess = () => {
         <div className='text-white m-5'>
             <h1 className='text-center text-4xl font-semibold mt-5'>Payment Success </h1>
 
-            <h5 className='text-center text-xl mt-5'> Reference No. {referenceNum}</h5>
-            <div className='text-white text-xl flex mt-8'>
+            <h5 className='text-center text-xl mt-5'>    Order #{Math.round(Math.random() * 100000)}</h5>
+            <div className='text-white text-xl col lg:flex mt-8'>
 
                 <div className='flex flex-col justify-center m-auto text-center gap-5'>
 
@@ -73,18 +73,18 @@ const PaymentSuccess = () => {
                     </div>
                 </div>
 
+                <div className='ml-10'>
+                    <Timer initMinute={5} initSeconds={0} />
+                </div>
                 <div className='flex justify-center '>
 
-                    <div className='ml-10'>
-                        <Timer initMinute={5} initSeconds={0} />
-                    </div>
 
                     <div className='text-center justify-center items-center mr-15'>
                         <img className='m-auto' src={Pizzaman} alt="pizzaman" height="300px" />
-                        <div className='mt-5' style={{ fontFamily: "Open Sans Condensed", fontSize: 35 }}>
+                        <div className='mt-5 text-xl lg:text-5xl' style={{ fontFamily: "Open Sans Condensed" }}>
                             We have received your order, Thank you
                         </div>
-                        <div className='mt-5' style={{ fontFamily: "Comfortaa" }}>
+                        <div className='my-5' style={{ fontFamily: "Comfortaa" }}>
                             Order #{Math.round(Math.random() * 100000)}
                         </div>
                         <div style={{ fontFamily: "Indie Flower", fontSize: 20 }}>

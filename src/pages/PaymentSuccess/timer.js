@@ -47,7 +47,7 @@ function Timer(props) {
                         </div>
                     </div>
                 ) : (
-                    <div>
+                    <div className="text-center my-5">
                         <h1 className='text-5xl mt-10 text-center text-yellow-400'>{minutes < 10 ? `0${minutes}` : minutes}:{seconds < 10 ? `0${seconds}` : seconds}</h1>
                         <p className="text-xl mt-1">minutes left to deliever your order</p>
                     </div>
