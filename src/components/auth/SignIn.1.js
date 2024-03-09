@@ -1,10 +1,8 @@
 import { React, useEffect, useState } from 'react';
 import { Navigate } from "react-router-dom";
 import { signInWithGoogle } from '../../context/AuthContext';
-import './Signup.css';
 
-
-const SignIn = () => {
+export const SignIn = () => {
     const [form, setForm] = useState({});
     const [users, setUsers] = useState([]);
 
@@ -12,37 +10,36 @@ const SignIn = () => {
         setForm({
             ...form,
             [e.target.name]: e.target.value
-        })
-    }
+        });
+    };
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        const response = await fetch('http://veganhubserver.onrender.com/demo', {
+        const response = await fetch('https://veganhubserver.onrender.com/demo', {
             method: 'POST',
             body: JSON.stringify(form),
             headers: {
                 'Content-Type': 'application/json'
             }
-        })
+        });
         const data = await response.json();
         console.log(data);
         if (response.ok) {
-            // Redirect to the home page
             return <Navigate to="/" />;
         }
-    }
+    };
 
     const getUsers = async () => {
-        const response = await fetch('http://veganhubserver.onrender.com/demo', {
+        const response = await fetch('https://veganhubserver.onrender.com/demo', {
             method: 'GET',
-        })
+        });
         const data = await response.json();
         setUsers(data);
-    }
+    };
 
     useEffect(() => {
         getUsers();
-    }, [])
+    }, []);
 
     return (
         <div className="sign-in-container">
@@ -56,8 +53,7 @@ const SignIn = () => {
                             required=""
                             name="username"
                             onChange={handleForm}
-                            className="bg-gray-200 rounded-md px-4 py-2 w-full"
-                        />
+                            className="bg-gray-200 rounded-md px-4 py-2 w-full" />
                         <label className="block text-gray-700">Username</label>
                     </div>
 
@@ -68,8 +64,7 @@ const SignIn = () => {
                             name="password"
                             onChange={handleForm}
                             required=""
-                            className="bg-gray-200 rounded-md px-4 py-2 w-full"
-                        />
+                            className="bg-gray-200 rounded-md px-4 py-2 w-full" />
                         <label className="block text-gray-700">Password</label>
                     </div>
 
@@ -80,12 +75,10 @@ const SignIn = () => {
                             name="age"
                             onChange={handleForm}
                             required=""
-                            className="bg-gray-200 rounded-md px-4 py-2 w-full"
-                        />
+                            className="bg-gray-200 rounded-md px-4 py-2 w-full" />
                         <label className="block text-gray-700">Age</label>
                     </div>
 
-                    <label className="block text-[#03e9f4]">Gender</label>
                     <div className="user-box mb-4">
                         <select
                             name="gender"
@@ -98,8 +91,9 @@ const SignIn = () => {
                             <option value="female">Female</option>
                             <option value="other">Other</option>
                         </select>
+                        {/* <label className="block text-gray-700">Gender</label> */}
                     </div>
-                    <label className="block text-[#03e9f4]">Mode of delivery</label>
+
                     <div className="user-box mb-4">
                         <select
                             name="delivery"
@@ -115,7 +109,7 @@ const SignIn = () => {
                     </div>
 
                     <div className="login">
-                        <button type="submit" >Log In</button>
+                        <button type="submit" className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Log In</button>
                     </div>
 
                     <ul>
@@ -135,5 +129,3 @@ const SignIn = () => {
         </div>
     );
 };
-
-export default SignIn;

@@ -4,7 +4,7 @@ import AuthDetails from '../../components/AuthDetails';
 
 function Login() {
   return (
-    <div><SignIn/></div>
+    <div><SignIn /></div>
   )
 }
 
