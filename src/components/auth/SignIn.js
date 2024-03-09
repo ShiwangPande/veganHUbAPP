@@ -93,7 +93,7 @@ const SignIn = () => {
                             required=""
                             className="bg-gray-200 rounded-md px-4 py-2 w-full"
                         >
-                            <option value="">Select your gender</option>
+                            <option value="" disabled selected>Select your gender</option>
                             <option value="male">Male</option>
                             <option value="female">Female</option>
                             <option value="other">Other</option>
@@ -107,7 +107,7 @@ const SignIn = () => {
                             required=""
                             className="bg-gray-200 rounded-md px-4 py-2 w-full"
                         >
-                            <option value="">Select mode of delivery</option>
+                            <option value="" disabled selected>Select mode of delivery</option>
                             <option value="self-pickup">Self-pickup</option>
                             <option value="home-delivery">Home delivery</option>
                         </select>
