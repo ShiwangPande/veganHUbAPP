@@ -23,7 +23,7 @@ const SignIn = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            await axios.post('https://veganhubserver.onrender.com/submit-form', formData);
+            await axios.post('http://veganhubserver.onrender.com/submit-form', formData);
             alert('Form submitted successfully!');
             // Clear form data after submission if needed
             setFormData({
