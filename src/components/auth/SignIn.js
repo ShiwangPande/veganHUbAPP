@@ -7,7 +7,7 @@ import './Signup.css';
 const SignIn = () => {
     const [form, setForm] = useState({});
     const [users, setUsers] = useState([]);
-
+    const [loggedIn, setLoggedIn] = useState(false);
     const handleForm = (e) => {
         setForm({
             ...form,
@@ -28,7 +28,8 @@ const SignIn = () => {
         console.log(data);
         if (response.ok) {
             // Redirect to the home page
-            return <Navigate to="/" />;
+            setLoggedIn(true); // Set loggedIn to true after successful login
+            window.location.href = '/'; // Redirect to the home page
         }
     }
 
@@ -119,14 +120,9 @@ const SignIn = () => {
                     </div>
 
                     <ul>
-                        {users.map(user => <li key={user._id}>{user.username},{user.password}</li>)}
+                        {users.map(user => <li key={user._id}>{user.username},{user.gender}, {user.age}</li>)}
                     </ul>
                     <hr className="my-5" />
-
-                    <div className="text-white">
-                        Don't have an account? <a href="/register" className="text-white hover:text-blue-600">Sign Up</a>
-                    </div>
-
                     <div className="mt-5 text-center">
                         <button onClick={signInWithGoogle} type="submit" className="btn btn-primary">Google Login</button>
                     </div>
