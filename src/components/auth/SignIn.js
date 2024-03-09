@@ -7,6 +7,7 @@ import firebase from 'firebase/app';
 import { signInWithGoogle, signOutwithGoogle } from '../../context/AuthContext';
 import app from "../../firebase";
 import GoogleButton from 'react-google-button';
+import { Navigate } from "react-router-dom";
 // import { useAuth } from '../context/AuthContext'
 const SignIn = () => {
     const [form, setForm] = useState({});
@@ -18,6 +19,7 @@ const SignIn = () => {
             [e.target.name]: e.target.value
         })
     }
+    const navigate = Navigate();
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -30,6 +32,9 @@ const SignIn = () => {
         })
         const data = await response.json();
         console.log(data);
+        if (response.ok) {
+            navigate.push("/");
+        }
     }
 
     const getUsers = async () => {
