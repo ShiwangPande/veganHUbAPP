@@ -10,7 +10,7 @@ function About() {
                 </div>
                 <div className="">
                     <h1 className='text-4xl font-bold text-center my-7' >About Us</h1>
-                    <p className='text-lg'>
+                    <p className='text-2xl lg:text-xl'>
                         <p>
                             Welcome to Vegan Hub, where plant-based excellence meets seamless service!
                         </p>  <br /><p>
