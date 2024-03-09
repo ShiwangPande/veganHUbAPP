@@ -66,6 +66,30 @@ const SignIn = () => {
                             onChange={handleForm} required="" />
                         <label>Password</label>
                     </div>
+                    <div class="user-box">
+                        <input type="number"
+                            placeholder="Enter your age"
+                            name="age"
+                            onChange={handleForm} required="" />
+                        <label>Age</label>
+                    </div>
+                    <div class="user-box">
+                        <select
+                            name="gender"
+                            onChange={handleForm} required="" />
+                        <label>Gender</label>
+                        <option>Male</option>
+                        <option>Female</option>
+                        <option>Other</option>
+                    </div>
+                    <div class="user-box">
+                        <select
+                            name="delivery"
+                            onChange={handleForm} required="" />
+                        <label>Mode of delivery</label>
+                        <option>self-pick up</option>
+                        <option>home delivery</option>
+                    </div>
                     <div className="login" >
                         <span></span>
                         <span></span>
