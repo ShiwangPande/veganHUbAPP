@@ -10,7 +10,7 @@ const UserData = () => {
 
     const fetchData = async () => {
         try {
-            const response = await axios.get('/api/users'); // Assuming your backend route to fetch user data is '/api/users'
+            const response = await axios.get('https://veganhubserver.onrender.com/api/users');
             setUserData(response.data);
         } catch (error) {
             console.error('Error fetching data:', error);

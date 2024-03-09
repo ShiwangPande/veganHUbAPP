@@ -27,7 +27,7 @@ const routes = ({ saladItems, appetizerItems, cartItems, handleAddProduct, handl
                 <Route path="/appetizer" element={<Appetizer appetizerItems={appetizerItems} handleAddProduct={handleAddProduct} />} />
                 <Route path="/salad" element={<Salad saladItems={saladItems} handleAddProduct={handleAddProduct} />} />
                 <Route path="/checkout" element={<Checkout appetizerItems={appetizerItems} ingredients={ingredients} setIngredients={setIngredients} handleAddProduct={handleAddProduct}  />} />
-                <Route path="/api" element={<UserData />} />
+                <Route path="/userdata" element={<UserData />} />
             </Routes>
         </div>
     )

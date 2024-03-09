@@ -1,5 +1,5 @@
 import { React, useEffect, useState } from 'react';
-import { Navigate } from "react-router-dom";
+
 import { signInWithGoogle } from '../../context/AuthContext';
 import './Signup.css';
 import axios from 'axios';
@@ -33,7 +33,7 @@ const SignIn = () => {
                 gender: '',
                 delivery: ''
             });
-            return <Navigate to="/" replace />
+       
         } catch (error) {
             console.error('Error submitting form:', error);
             alert('Failed to submit form. Please try again later.');
