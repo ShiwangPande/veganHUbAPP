@@ -18,24 +18,24 @@ const UserData = () => {
     };
 
     return (
-        <div>
-            <h1>User Data</h1>
-            <table>
+        <div className="bg-gray-900 text-white p-4">
+            <h1 className="text-2xl mb-4">User Data</h1>
+            <table className="w-full border-collapse border border-gray-700">
                 <thead>
                     <tr>
-                        <th>Email</th>
-                        <th>Age</th>
-                        <th>Gender</th>
-                        <th>Delivery</th>
+                        <th className="p-3 border-b border-gray-700">Email</th>
+                        <th className="p-3 border-b border-gray-700">Age</th>
+                        <th className="p-3 border-b border-gray-700">Gender</th>
+                        <th className="p-3 border-b border-gray-700">Delivery</th>
                     </tr>
                 </thead>
                 <tbody>
                     {userData.map((user) => (
-                        <tr key={user.id}>
-                            <td>{user.email}</td>
-                            <td>{user.age}</td>
-                            <td>{user.gender}</td>
-                            <td>{user.delivery}</td>
+                        <tr key={user.id} className="border-b text-center border-gray-700">
+                            <td className="p-3">{user.email}</td>
+                            <td className="p-3">{user.age}</td>
+                            <td className="p-3">{user.gender}</td>
+                            <td className="p-3">{user.delivery}</td>
                         </tr>
                     ))}
                 </tbody>

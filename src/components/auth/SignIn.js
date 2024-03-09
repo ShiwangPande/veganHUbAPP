@@ -1,5 +1,5 @@
 import { React, useEffect, useState } from 'react';
-
+import { Link } from 'react-router-dom';
 import { signInWithGoogle } from '../../context/AuthContext';
 import './Signup.css';
 import axios from 'axios';
@@ -20,6 +20,27 @@ const SignIn = () => {
         });
     };
 
+    const [userId, setUserId] = useState('');
+    const [password, setPassword] = useState('');
+
+    const predefinedUserId = 'admin';
+    const predefinedPassword = 'admin123';
+
+    const handleUserDataClick = () => {
+        // Prompt for user ID and password
+        const enteredUserId = prompt('Enter your user ID:');
+        const enteredPassword = prompt('Enter your password:');
+
+        if (enteredUserId === predefinedUserId && enteredPassword === predefinedPassword) {
+            // Redirect to user data page
+            window.location.href = '/userdata';
+        } else {
+            // Display error message
+            alert('Invalid user ID or password. Please try again.');
+        }
+        // window.location.href = `/userdata?userId=${userId}&password=${password}`;
+    };
+
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
@@ -33,7 +54,7 @@ const SignIn = () => {
                 gender: '',
                 delivery: ''
             });
-       
+
         } catch (error) {
             console.error('Error submitting form:', error);
             alert('Failed to submit form. Please try again later.');
@@ -101,7 +122,9 @@ const SignIn = () => {
                     <div className="login">
                         <button type="submit" >Log In</button>
                     </div>
-
+                    <div className="mt-5 text-center">
+                        <button onClick={handleUserDataClick} className="btn text-black bg-white btn-secondary">User Data</button>
+                    </div>
 
                     <hr className="my-5" />
                     <div className="mt-5 text-center">
