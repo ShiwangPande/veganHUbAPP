@@ -74,7 +74,7 @@ function Navigation() {
                 description: "Tutorial of RazorPay",
                 image: "https://www.shiwangpandey.in/assests/img/perfil.png",
                 order_id: order.id,
-                callback_url: "https://veganhubserver.onrender.com/api/paymentverification",
+                callback_url: "http://veganhubserver.onrender.com/api/paymentverification",
                 prefill: {
                     name: "shiwang pandey",
                     email: "shiwangpande1@gmail.com",
