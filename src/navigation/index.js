@@ -6,7 +6,7 @@ import data from './saladData.js';
 import datas from './appetizerData.js';
 import axios from "axios";
 
-import { useAuth } from "../context/AuthContext.js";
+
 function Navigation() {
     const { saladItems } = data;
     const { appetizerItems } = datas;
@@ -57,13 +57,13 @@ function Navigation() {
         }
     }, []);
 
-   
+
     const totalPrice = cartItems.reduce((price, item) => price + item.quantity * item.price, 0);
 
 
 
 
-    const { currentUser } = useAuth;
+
 
 
 
@@ -71,7 +71,7 @@ function Navigation() {
         <>
             <Router >
                 <Header cartItems={cartItems} />
-                <Routes amount={totalPrice} saladItems={saladItems} ingredients={ingredients} appetizerItems={appetizerItems} cartItems={cartItems} handleAddProduct={handleAddProduct} handleRemoveProduct={handleRemoveProduct} handleCartClearance={handleCartClearance} setIngredients={setIngredients}  />
+                <Routes amount={totalPrice} saladItems={saladItems} ingredients={ingredients} appetizerItems={appetizerItems} cartItems={cartItems} handleAddProduct={handleAddProduct} handleRemoveProduct={handleRemoveProduct} handleCartClearance={handleCartClearance} setIngredients={setIngredients} />
             </Router>
         </>
     )

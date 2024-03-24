@@ -1,6 +1,4 @@
 import React from 'react'
-import './index.css'
-// import PizzaCart from "./DisplayPizza"
 import { Link } from 'react-router-dom';
 function index() {
 

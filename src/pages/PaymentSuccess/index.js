@@ -1,15 +1,10 @@
 import React, { useState } from 'react'
-import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import Alert from 'react-bootstrap/Alert';
-import { useSearchParams } from "react-router-dom"
 import Pizzaman from "../../assests/images/PizzaMan.png";
 import Timer from "./timer";
 const PaymentSuccess = () => {
 
-    const seachQuery = useSearchParams()[0]
-
-    const referenceNum = seachQuery.get("reference")
 
     const [show, setShow] = useState(false);
 
@@ -42,9 +37,9 @@ const PaymentSuccess = () => {
     }
     return (
         <div className='text-white m-5'>
-            <h1 className='text-center text-4xl font-semibold mt-5'>Payment Success </h1>
+            <h1 className='text-center text-4xl font-semibold mt-5'>Order Successful✅ </h1>
 
-            <h5 className='text-center text-xl mt-5'>    Order #{Math.round(Math.random() * 100000)}</h5>
+            <h5 className='text-center text-xl mt-5'>    Order no. #{Math.round(Math.random() * 100000)}</h5>
             <div className='text-white text-xl col lg:flex mt-8'>
 
                 <div className='flex flex-col justify-center m-auto text-center gap-5'>
@@ -84,11 +79,8 @@ const PaymentSuccess = () => {
                         <div className='mt-5 text-xl lg:text-5xl' style={{ fontFamily: "Open Sans Condensed" }}>
                             We have received your order, Thank you
                         </div>
-                        <div className='my-5' style={{ fontFamily: "Comfortaa" }}>
-                            Order #{Math.round(Math.random() * 100000)}
-                        </div>
                         <div style={{ fontFamily: "Indie Flower", fontSize: 20 }}>
-                            Will be ready in 20-30 min.
+                            Will be ready in 5-6 min.
                         </div>
                     </div>
 

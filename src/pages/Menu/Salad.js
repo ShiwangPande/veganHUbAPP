@@ -1,5 +1,4 @@
 import React from 'react'
-import Menu from './menu'
 import "./cart.css"
 function Salad({ saladItems, handleAddProduct }) {
   return (
@@ -20,7 +19,7 @@ function Salad({ saladItems, handleAddProduct }) {
                 <p>{saladItem.description}</p>
               </div>
               <div className="price">
-                <h3>${saladItem.price}</h3>
+                <h3>₹{saladItem.price}</h3>
               </div>
 
               <div className='add-to-button'>

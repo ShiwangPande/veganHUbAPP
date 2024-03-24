@@ -1,7 +1,6 @@
-import { React, useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
-import { signInWithGoogle } from '../../context/AuthContext';
-import './Signup.css';
+import { React, useState } from 'react';
+
+import './Signin.css';
 import axios from 'axios';
 
 const SignIn = () => {
@@ -20,8 +19,7 @@ const SignIn = () => {
         });
     };
 
-    const [userId, setUserId] = useState('');
-    const [password, setPassword] = useState('');
+
 
     const predefinedUserId = 'admin';
     const predefinedPassword = 'admin123';
@@ -116,7 +114,6 @@ const SignIn = () => {
                         <option value="self-pickup">Self-pickup</option>
                         <option value="home-delivery">Home delivery</option>
                     </select>
-                    {/* <label className="block text-gray-700">Mode of delivery</label> */}
                 </div>
 
                 <div className="login">
@@ -127,9 +124,7 @@ const SignIn = () => {
                 <div className="mt-5 text-center">
                     <button onClick={handleUserDataClick} className="btn p-4 rounded-lg text-3xl text-black bg-white btn-secondary">User Data</button>
                 </div>
-                <div className="mt-5 text-center">
-                    <button onClick={signInWithGoogle} type="submit" className="btn btn-primary">Google Login</button>
-                </div>
+
             </form>
         </div>
 

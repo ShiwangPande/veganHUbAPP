@@ -1,8 +1,4 @@
 import React, { useState } from "react";
-import Carts from "../../components/cart/Cart";
-import Pizzaman from "../../assests/images/PizzaMan.png";
-// import Carts from "./Cart";
-// import Menu from "../Menu/menu";
 import "./cart.css";
 import { Scrollbars } from "react-custom-scrollbars-2";
 function Cart({ cartItems, handleAddProduct, handleRemoveProduct, handleCartClearance }) {
