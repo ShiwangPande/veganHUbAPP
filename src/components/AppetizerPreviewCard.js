@@ -1,5 +1,4 @@
 import React from 'react'
-import AddProduct from './AddProduct.js'
 
 function AppetizerPreviewCard({ product, handleAddProduct }) {
 
@@ -10,7 +9,12 @@ function AppetizerPreviewCard({ product, handleAddProduct }) {
             <h2 className='p-2 text-center text-lg'>{product.title}</h2>
             <p className='mb-2 h-20 line-clamp-4'>{product.description}</p>
             <p>₹{product.price}</p>
-            <AddProduct product={product} handleAddProduct={handleAddProduct} />
+            <div className="flex justify-end">
+
+                <button onClick={() => handleAddProduct(product)} className="bg-yellow-500 hover:bg-yellow-700 rounded-full w-5 h-5 flex items-center justify-center text-lg">
+                    <span>+</span>
+                </button>
+            </div>
         </div>
     )
 }
