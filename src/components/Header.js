@@ -1,10 +1,11 @@
 import CartIcon from '../assests/icons/cart.svg';
 import { Link } from 'react-router-dom';
 import Nav from 'react-bootstrap/Nav';
-
+import { useAuth } from './auth/AuthContext'
 function Header({ cartItems }) {
- 
-  
+    const { authenticated } = useAuth();
+
+
     return (
         <nav id='header' className=" text-white">
             <div className='w-full container mx-auto flex flex-wrap items-center justify-between mt-0 py-2'>
@@ -33,10 +34,12 @@ function Header({ cartItems }) {
                     </Link>
                     <Nav>
                         <div className='user_icon' eventKey={2} href="/login" style={{ color: "#EEEEEE", fontWeight: "bolder", fontSize: "15px", display: "flex", justifyContent: "center" }}>
-                          
-                                    <a href="/login">
-                                        <button className='btn text-2xl lg:text-xl btn-ghost' variant="outline-light" type='submit' style={{}} >login</button></a>
-               
+                            {authenticated ? (
+                                <button className='btn text-2xl lg:text-xl btn-ghost' variant="outline-light" type='submit' style={{}} >Verified</button>
+                            ) : (
+                                <a href="/login">
+                                    <button className='btn text-2xl lg:text-xl btn-ghost' variant="outline-light" type='submit' style={{}} >login</button></a>
+                            )}
                         </div>
                     </Nav>
                 </div>

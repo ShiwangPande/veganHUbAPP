@@ -1,10 +1,13 @@
 import { React, useState } from 'react';
-import { createBrowserHistory } from 'history';
+import { useAuth } from './AuthContext';
+import { useNavigate } from 'react-router-dom';
+
 import './Signin.css';
 import axios from 'axios';
 
-const SignIn = ({onFormFilled}) => {
-    const history = createBrowserHistory();
+const SignIn = () => {
+    const { signIn } = useAuth();
+    let navigate = useNavigate();
     const [formData, setFormData] = useState({
         email: '',
         password: '',
@@ -45,6 +48,7 @@ const SignIn = ({onFormFilled}) => {
         try {
             await axios.post('https://veganhubserver.onrender.com/submit-form', formData);
             alert('Form submitted successfully!');
+            signIn();
             // Clear form data after submission if needed
             setFormData({
                 email: '',
@@ -53,7 +57,7 @@ const SignIn = ({onFormFilled}) => {
                 gender: '',
                 delivery: ''
             });
-            history.push('/cart');
+            navigate('/');
         } catch (error) {
             console.error('Error submitting form:', error);
             alert('Failed to submit form. Please try again later.');

@@ -5,7 +5,7 @@ import Routes from '../Routes/Routes.js';
 import data from './saladData.js';
 import datas from './appetizerData.js';
 import axios from "axios";
-
+import { AuthProvider } from '../components/auth/AuthContext.js';
 
 function Navigation() {
     const { saladItems } = data;
@@ -69,10 +69,12 @@ function Navigation() {
 
     return (
         <>
-            <Router >
-                <Header cartItems={cartItems} />
-                <Routes amount={totalPrice} saladItems={saladItems} ingredients={ingredients} appetizerItems={appetizerItems} cartItems={cartItems} handleAddProduct={handleAddProduct} handleRemoveProduct={handleRemoveProduct} handleCartClearance={handleCartClearance} setIngredients={setIngredients} />
-            </Router>
+            <AuthProvider >
+                <Router >
+                    <Header cartItems={cartItems} />
+                    <Routes amount={totalPrice} saladItems={saladItems} ingredients={ingredients} appetizerItems={appetizerItems} cartItems={cartItems} handleAddProduct={handleAddProduct} handleRemoveProduct={handleRemoveProduct} handleCartClearance={handleCartClearance} setIngredients={setIngredients} />
+                </Router>
+            </AuthProvider>
         </>
     )
 }
