@@ -1,9 +1,18 @@
 import React, { useState } from "react";
 import "./cart.css";
 import { Scrollbars } from "react-custom-scrollbars-2";
-function Cart({ cartItems, handleAddProduct, handleRemoveProduct, handleCartClearance }) {
-
+import { createBrowserHistory } from 'history';
+function Cart({ cartItems, handleAddProduct, handleRemoveProduct, handleCartClearance, formFilled }) {
+  const history = createBrowserHistory();
   const totalPrice = cartItems.reduce((price, item) => price + item.quantity * item.price, 0);
+  const handleCheckout = () => {
+    if (formFilled) {
+      // Proceed to checkout
+      history.push("/paymentsuccess");
+    } else {
+      alert('Please fill out the form before proceeding to checkout.');
+    }
+  };
   return (
     <>
       <div className="carts">
@@ -43,7 +52,7 @@ function Cart({ cartItems, handleAddProduct, handleRemoveProduct, handleCartClea
             <h3>
               Cart Total : <span>₹{totalPrice}</span>
             </h3>
-            <a href="paymentsuccess">   <button >checkout</button> </a>
+            <button onClick={handleCheckout}>checkout</button>
             {cartItems.length >= 1 && <button className="clear-cart" onClick={handleCartClearance}>Clear Cart</button>}
           </div>
 

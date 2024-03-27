@@ -1,9 +1,10 @@
 import { React, useState } from 'react';
-
+import { createBrowserHistory } from 'history';
 import './Signin.css';
 import axios from 'axios';
 
 const SignIn = () => {
+    const history = createBrowserHistory();
     const [formData, setFormData] = useState({
         email: '',
         password: '',
@@ -52,7 +53,7 @@ const SignIn = () => {
                 gender: '',
                 delivery: ''
             });
-
+            history.push('/cart', { formFilled: true });
         } catch (error) {
             console.error('Error submitting form:', error);
             alert('Failed to submit form. Please try again later.');
