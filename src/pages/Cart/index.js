@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "./cart.css";
 import { Scrollbars } from "react-custom-scrollbars-2";
 import { useNavigate } from 'react-router-dom';
-function Cart({ cartItems, handleAddProduct, handleRemoveProduct, handleCartClearance, formFilled }) {
+function Cart({ cartItems, handleAddProduct, handleRemoveProduct, handleCartClearance}) {
   const [formFilled, setFormFilled] = useState(false);
   const history = useNavigate();
   const totalPrice = cartItems.reduce((price, item) => price + item.quantity * item.price, 0);
