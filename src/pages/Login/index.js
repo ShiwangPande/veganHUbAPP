@@ -1,9 +1,9 @@
 import React from 'react'
 import SignIn from '../../components/auth/SignIn';
 
-function Login() {
+function Login({onFormFilled} ) {
   return (
-    <div><SignIn /></div>
+    <div><SignIn onFormFilled={onFormFilled}/></div>
   )
 }
 

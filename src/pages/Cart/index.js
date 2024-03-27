@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 import "./cart.css";
 import { Scrollbars } from "react-custom-scrollbars-2";
-import { createBrowserHistory } from 'history';
+import { useNavigate } from 'react-router-dom';
 function Cart({ cartItems, handleAddProduct, handleRemoveProduct, handleCartClearance, formFilled }) {
-  const history = createBrowserHistory();
+  const [formFilled, setFormFilled] = useState(false);
+  const history = useNavigate();
   const totalPrice = cartItems.reduce((price, item) => price + item.quantity * item.price, 0);
   const handleCheckout = () => {
     if (formFilled) {
@@ -52,7 +53,7 @@ function Cart({ cartItems, handleAddProduct, handleRemoveProduct, handleCartClea
             <h3>
               Cart Total : <span>₹{totalPrice}</span>
             </h3>
-            <button onClick={handleCheckout}>checkout</button>
+            <button disabled={!formFilled} onClick={handleCheckout}>checkout</button>
             {cartItems.length >= 1 && <button className="clear-cart" onClick={handleCartClearance}>Clear Cart</button>}
           </div>
 

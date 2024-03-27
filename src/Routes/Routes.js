@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react';
 import { Routes, Route } from 'react-router-dom'
 import Home from '../pages/Home';
 import Cart from '../pages/Cart';
@@ -11,13 +11,19 @@ import Appetizer from '../pages/Menu/Appetizer.js';
 import UserData from '../components/auth/Userdata.js';
 
 const routes = ({ saladItems, appetizerItems, cartItems, handleAddProduct, handleRemoveProduct, handleCartClearance, ingredients, setIngredients }) => {
+
+    const [formFilled, setFormFilled] = useState(false);
+
+    const handleFormFilled = (isFilled) => {
+        setFormFilled(isFilled);
+    };
     return (
         <div>
             <Routes>
                 <Route path="/" element={<Home saladItems={saladItems} appetizerItems={appetizerItems} handleAddProduct={handleAddProduct} />} />
-                <Route path="/cart" element={<Cart cartItems={cartItems} handleAddProduct={handleAddProduct} handleRemoveProduct={handleRemoveProduct} handleCartClearance={handleCartClearance}  />} />
+                <Route path="/cart" element={<Cart cartItems={cartItems} handleAddProduct={handleAddProduct} handleRemoveProduct={handleRemoveProduct} handleCartClearance={handleCartClearance} formFilled={formFilled} />} />
                 <Route path="/about" element={<About />} />
-                <Route path="/login" element={<Login />} />
+                <Route path="/login" element={<Login onFormFilled={handleFormFilled} />} />
                 <Route path="/menu" element={<Menu />} />
                 <Route path="/paymentsuccess" element={<PaymentSuccess />} />
                 <Route path="/appetizer" element={<Appetizer appetizerItems={appetizerItems} handleAddProduct={handleAddProduct} />} />

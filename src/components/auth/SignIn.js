@@ -3,7 +3,7 @@ import { createBrowserHistory } from 'history';
 import './Signin.css';
 import axios from 'axios';
 
-const SignIn = () => {
+const SignIn = ({onFormFilled}) => {
     const history = createBrowserHistory();
     const [formData, setFormData] = useState({
         email: '',
@@ -53,7 +53,7 @@ const SignIn = () => {
                 gender: '',
                 delivery: ''
             });
-            history.push('/cart', { formFilled: true });
+            history.push('/cart');
         } catch (error) {
             console.error('Error submitting form:', error);
             alert('Failed to submit form. Please try again later.');
