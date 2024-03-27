@@ -32,7 +32,7 @@ function Cart({ cartItems, handleAddProduct, handleRemoveProduct, handleCartClea
 
 
                         </div>
-                        <div className="price">{item.quantity} * ${item.price}</div>
+                        <div className="price">{item.quantity} * ₹{item.price}</div>
                       </div>
                     ))}
                 </div>
@@ -41,7 +41,7 @@ function Cart({ cartItems, handleAddProduct, handleRemoveProduct, handleCartClea
           </div>
           <div className="card-total">
             <h3>
-              Cart Total : <span>${totalPrice}</span>
+              Cart Total : <span>₹{totalPrice}</span>
             </h3>
             <a href="paymentsuccess">   <button >checkout</button> </a>
             {cartItems.length >= 1 && <button className="clear-cart" onClick={handleCartClearance}>Clear Cart</button>}
