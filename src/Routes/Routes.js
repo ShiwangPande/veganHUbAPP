@@ -10,7 +10,7 @@ import Salad from '../pages/Menu/Salad.js';
 import Appetizer from '../pages/Menu/Appetizer.js';
 import UserData from '../components/auth/Userdata.js';
 
-const routes = ({ saladItems, appetizerItems, cartItems, handleAddProduct, handleRemoveProduct, handleCartClearance, ingredients, setIngredients }) => {
+const Routers = ({ saladItems, appetizerItems, cartItems, handleAddProduct, handleRemoveProduct, handleCartClearance, ingredients, setIngredients }) => {
 
     const [formFilled, setFormFilled] = useState(false);
 
@@ -34,4 +34,4 @@ const routes = ({ saladItems, appetizerItems, cartItems, handleAddProduct, handl
     )
 }
 
-export default routes
+export default Routers
